@@ -1,0 +1,1 @@
+export const BASE_API_URL = 'https://dev.tradehounds.io/api/v1'

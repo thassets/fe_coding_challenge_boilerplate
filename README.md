@@ -8,12 +8,12 @@ Javascript apps built with expo are designed to run on both native and web, so y
 
 #### Getting Started
 ###### Local development (recommended)
-- To work locally using your own editor, install the [expo-cli](https://docs.expo.io/workflow/expo-cli/): `npm install -g expo-cli`.
+- To work locally using your own editor, install the [expo-cli](https://docs.expo.io/workflow/expo-cli/): `npm install -g expo-cli`
 - Clone the repository: `git clone https://github.com/tradehounds/fe_coding_challenge_boilerplate.git`
 - Install javascript dependencies (expo takes care of native linking for you): `npm install`
 - From here, you can run on a native simulator or just work in the browser. It's totally up to you, just take a look at the package.json scripts for ios, android, and web options.
 ###### Remote development
-- To work using the online expo snack editor, navigate to snack.expo.io and on the left column (near "Project"), click the vertical ellipses and import this git repository: https://github.com/tradehounds/fe_coding_challenge_boilerplate.git.
+- To work using the online expo snack editor, navigate to snack.expo.io and on the left column (near "Project"), click the vertical ellipses and import this git repository: https://github.com/tradehounds/fe_coding_challenge_boilerplate.git
 
 #### Requirements
 As a user, I want to be able to:
@@ -23,7 +23,7 @@ As a user, I want to be able to:
   - Hint: `<Post />` component is already provided for you
   - Note: pagination is not required unless you have extra time.
 - **Add dogs to a list of favorites by clicking favorite button**
-  - Note: any post UI updates should occur [optimistically](https://blog.bitsrc.io/building-an-optimistic-user-interface-in-react-b943656e75e3) here
+  - Note: any post UI updates should occur [optimistically](https://blog.bitsrc.io/building-an-optimistic-user-interface-in-react-b943656e75e3) here. In other words, you shouldn't have to wait for the POST request to resolve to see a filled in heart icon.
 - **View my favorite dogs**
 
 #### Submitting

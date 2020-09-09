@@ -2,7 +2,6 @@ import * as React from 'react';
 import axios from 'axios';
 import * as Expo from "expo";
 import * as Font from 'expo-font';
-import { Provider } from 'react-redux';
 import {
   applyMiddleware,
   combineReducers,
@@ -12,6 +11,7 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from 'redux-devtools-extension';
 import feed from './src/features/feed/redux';
 import { Header, Feed } from './src/components';
+import { Provider } from 'react-redux';
 
 axios.defaults.baseURL = 'https://api.TheDogAPI.com/v1';
 axios.defaults.headers.common = {

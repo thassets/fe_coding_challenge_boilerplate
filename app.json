@@ -10,19 +10,6 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "dependencies": {
-      "axios": "^0.20.0",
-      "expo": "^38.0.10",
-      "react": "~16.11.0",
-      "react-dom": "~16.11.0",
-      "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
-      "react-native-svg": "12.1.0",
-      "react-native-web": "~0.11.7",
-      "react-redux": "^7.2.1",
-      "redux": "^4.0.5",
-      "redux-devtools-extension": "^2.13.8",
-      "redux-thunk": "^2.3.0"
-    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },

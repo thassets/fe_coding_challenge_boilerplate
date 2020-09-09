@@ -1,11 +1,9 @@
-# Sample Snack app
+# Trade Hounds coding challenge
 
-Open the `App.js` file to start writing some code. You can preview the changes directly on your phone or tablet by clicking the **Run** button or use the simulator by clicking **Tap to Play**. When you're done, click **Save** and share the link!
+Thanks for taking the time to share your React Native expertise with us! The point of this test is to help us get an understanding of how you approach architecting a react/redux application and is designed to be completed in four hours. At a high level, you will be building a simple instagram-style dog photo feed with the ability to mark a dog as a favorite. We will be using the [Dog API](https://docs.thedogapi.com/). Once completed, we will meet to talk about your approach and talk about future optimizations you would made given extra time.
 
-When you're ready to see everything that Expo provides (or if you want to use your own editor) you can **Export** your project and use it with [expo-cli](https://docs.expo.io/versions/latest/introduction/installation.html).
+The application is managed by [expo](https://docs.expo.io/), and the only dependency you should need to install is the [expo-cli](https://docs.expo.io/workflow/expo-cli/). Alternatively, you can create your own expo snack and work in the expo editor where you would be able to see live changes to the app and share the results using a link. Javascript apps built with expo are designed to run on both native and web, so you have the option of viewing your code changes in either a web or mobile context. The expo syntax is still react-native though, so you use `<View />`, `<Text />`, etc.
 
-All projects created in Snack are publicly available, so you can easily share the link to this project via link, or embed it on a web page with the **Embed** button.
-
-If you're having problems, you can tweet to us [@expo](https://twitter.com/expo) or ask in our [forums](https://forums.expo.io).
-
-Snack is Open Source. You can find the code on the [GitHub repo](https://github.com/expo/snack-web).
+#### Getting Started
+- To work locally using your own editor, install the [expo-cli](https://docs.expo.io/workflow/expo-cli/) by running `npm install -g expo-cli`. When you're finished, feel free to uninstall the cli.
+- To work using the online expo snack editor, 

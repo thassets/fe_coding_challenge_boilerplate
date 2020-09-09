@@ -7,6 +7,16 @@ The application is managed by [expo](https://docs.expo.io/), and the only depend
 Javascript apps built with expo are designed to run on both native and web, so you have the option of viewing your code changes in either a web or mobile context. The expo syntax is still react-native though, so you use `<View />`, `<Text />`, etc. Read below for instructions on how to launch the app in either context.
 
 #### Getting Started
+The following dependencies are pre-installed:
+- axios
+- redux
+- redux-thunk
+- react-native-svg
+- redux-devtools-extension
+- react-redux
+
+Should you need to install additional dependencies, just `npm install` as usual. There shouldn't be any need for native module linking for this challenge.
+
 ###### Local development (recommended)
 - To work locally using your own editor, install the [expo-cli](https://docs.expo.io/workflow/expo-cli/) (the app was build with the latest version, v3.26.2): `npm install -g expo-cli`
 - Clone the repository: `git clone https://github.com/tradehounds/fe_coding_challenge_boilerplate.git`
@@ -14,6 +24,7 @@ Javascript apps built with expo are designed to run on both native and web, so y
 - From here, you can run on a native simulator or just work in the browser. It's totally up to you, just take a look at the package.json scripts for ios, android, and web options.
 ###### Remote development
 - To work using the online expo snack editor, navigate to snack.expo.io and on the left column (near "Project"), click the vertical ellipses and import this git repository (no need for anything under "advanced options"): https://github.com/tradehounds/fe_coding_challenge_boilerplate.git
+- The app should launch immediately. We recommend disabling "Update as you type" in the bottom right corner of the expo snack editor under "Devices". If you want to avoid the pop up every time you save, create an expo account (this is why we recommend local development).
 
 #### Requirements
 As a user, I want to be able to:

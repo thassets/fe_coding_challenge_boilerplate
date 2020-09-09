@@ -10,6 +10,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "dependencies": {
+      "react-redux": "^7.2.1"
+    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },

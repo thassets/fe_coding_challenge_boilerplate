@@ -9,6 +9,7 @@ import {
 import { UpVote, DownVote } from './components';
 import { upVote } from '../../../../features/feed/redux';
 import { useDispatch } from 'react-redux';
+import { metrics } from '../../../../../constants';
 
 const POST_MAX_WIDTH = 800
 const window = Dimensions.get("window");
@@ -47,7 +48,8 @@ export function Post({ data }) {
   }
 
   const ratio = height / width;
-  const scaledWidth = dimensions.window.width > POST_MAX_WIDTH ? POST_MAX_WIDTH : dimensions.window.width
+  let scaledWidth = dimensions.window.width > POST_MAX_WIDTH ? POST_MAX_WIDTH : dimensions.window.width
+  scaledWidth -= metrics.defaultPadding
 
   return (
     <View key={id} style={styles.container}>
@@ -58,7 +60,7 @@ export function Post({ data }) {
           height: scaledWidth * ratio,
         }}
       />
-      {/* <View style={styles.metaContainer}>
+      <View style={styles.metaContainer}>
         <Text>Name: {breeds[0].name}</Text>
         <Text>Bred group: {breeds[0].breed_group}</Text>
         <Text>Bred for: {breeds[0].bred_for}</Text>
@@ -66,7 +68,7 @@ export function Post({ data }) {
         <Text>Temperament: {breeds[0].temperament}</Text>
         <Text>Height: {breeds[0].height.metric}cm</Text>
         <Text>Weight: {breeds[0].weight.metric}kg</Text>
-      </View> */}
+      </View>
       <View>
         <UpVote onPress={handleUpVote} />
       </View>
@@ -85,10 +87,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 20,
     borderColor: 'rgba(0,0,0,0.5)'
-  },
-  image: {
-    height: '100%',
-    width: '100%',
   },
   metaContainer: {
     padding: 10

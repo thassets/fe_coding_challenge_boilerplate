@@ -5,6 +5,7 @@ import {
   ActivityIndicator,
 } from 'react-native'
 import { fetchFeedData } from '../../features/feed/redux'
+import { metrics } from '../../../constants'
 import { useDispatch, useSelector } from 'react-redux'
 import { Post } from './components'
 
@@ -38,5 +39,7 @@ export function Feed() {
 }
 
 const styles = StyleSheet.create({
-  container: {}
+  container: {
+    padding: metrics.padding
+  }
 })

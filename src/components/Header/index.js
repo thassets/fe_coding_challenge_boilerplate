@@ -19,11 +19,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
-    shadowOpacity: 1,
-    shadowColor: '#000'
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 20,
   },
   text: {
-    fontSize: 20,
+    fontSize: 24,
     color: '#eba400',
     fontFamily: 'Oswald-Bold'
   }

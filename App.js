@@ -1,5 +1,4 @@
 import * as React from 'react';
-import axios from 'axios';
 import * as Expo from "expo";
 import * as Font from 'expo-font';
 import {
@@ -7,6 +6,7 @@ import {
   combineReducers,
   createStore
 } from 'redux';
+import axios from 'axios';
 import thunk from "redux-thunk";
 import { composeWithDevTools } from 'redux-devtools-extension';
 import feed from './src/features/feed/redux';

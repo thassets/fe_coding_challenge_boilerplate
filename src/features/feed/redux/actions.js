@@ -1,49 +1,52 @@
 import {
-  FETCH_FEED_DATA_BEGIN,
-  FETCH_FEED_DATA_ERROR,
-  FETCH_FEED_DATA_SUCCESS,
-  UP_VOTE_BEGIN,
-  UP_VOTE_SUCCESS,
-  UP_VOTE_ERROR,
+  GET_FEED_DATA_BEGIN,
+  GET_FEED_DATA_ERROR,
+  GET_FEED_DATA_SUCCESS,
+  MARK_AS_FAVORITE_BEGIN,
+  MARK_AS_FAVORITE_SUCCESS,
+  MARK_AS_FAVORITE_ERROR,
 } from "./types";
 
-export function fetchFeedDataBegin() {
+export function getFeedDataBegin() {
   return {
-    type: FETCH_FEED_DATA_BEGIN,
+    type: GET_FEED_DATA_BEGIN,
   }
 }
 
-export function fetchFeedDataSuccess(data) {
+export function getFeedDataSuccess(data) {
   return {
-    type: FETCH_FEED_DATA_SUCCESS,
+    type: GET_FEED_DATA_SUCCESS,
     payload: data
   }
 }
 
-export function fetchFeedDataError(error) {
+export function getFeedDataError(error) {
   return {
-    type: FETCH_FEED_DATA_ERROR,
+    type: GET_FEED_DATA_ERROR,
     payload: error
   }
 }
 
-export function upVoteBegin(id) {
+export function markAsFavoriteBegin(id, value) {
   return {
-    type: UP_VOTE_BEGIN,
-    payload: id
+    type: MARK_AS_FAVORITE_BEGIN,
+    payload: {
+      id,
+      value
+    }
   }
 }
 
-export function upVoteSuccess(data) {
+export function markAsFavoriteSuccess(data) {
   return {
-    type: UP_VOTE_SUCCESS,
+    type: MARK_AS_FAVORITE_SUCCESS,
     payload: data
   }
 }
 
-export function upVoteError(error) {
+export function markAsFavoriteError(error) {
   return {
-    type: UP_VOTE_ERROR,
+    type: MARK_AS_FAVORITE_ERROR,
     payload: error
   }
 }

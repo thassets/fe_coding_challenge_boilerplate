@@ -1,2 +1,2 @@
-export * from './UpVote';
-export * from './DownVote';
+export * from './ThumbsUp';
+export * from './MetricText';

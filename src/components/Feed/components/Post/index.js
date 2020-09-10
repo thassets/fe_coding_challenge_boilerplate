@@ -4,16 +4,14 @@ import {
   Dimensions,
   Image,
   StyleSheet,
-  Text,
 } from 'react-native'
-import { UpVote, DownVote } from './components';
-import { upVote } from '../../../../features/feed/redux';
+import { ThumbsUp, MetricText } from './components';
+import { markAsFavorite } from '../../../../features/feed/redux';
 import { useDispatch } from 'react-redux';
 import { metrics } from '../../../../../constants';
 
-const POST_MAX_WIDTH = 800
+const POST_MAX_WIDTH = 600
 const window = Dimensions.get("window");
-const screen = Dimensions.get("screen");
 
 export function Post({ data }) {
   const {
@@ -21,7 +19,8 @@ export function Post({ data }) {
     id,
     url,
     width,
-    height
+    height,
+    vote,
   } = data
 
   if (breeds.length < 1) {
@@ -30,25 +29,15 @@ export function Post({ data }) {
 
   const dispatch = useDispatch()
 
-  const [dimensions, setDimensions] = React.useState({ window, screen });
-
-  const onChange = ({ window, screen }) => {
-    setDimensions({ window, screen });
-  };
-
-  React.useEffect(() => {
-    Dimensions.addEventListener("change", onChange);
-    return () => {
-      Dimensions.removeEventListener("change", onChange);
-    };
-  });
-
   function handleUpVote() {
-    dispatch(upVote(id))
+    const value = !!vote ? 0 : 1
+    dispatch(markAsFavorite(id, value))
   }
 
+  console.log("I'm rendering!")
+
   const ratio = height / width;
-  let scaledWidth = dimensions.window.width > POST_MAX_WIDTH ? POST_MAX_WIDTH : dimensions.window.width
+  let scaledWidth = window.width > POST_MAX_WIDTH ? POST_MAX_WIDTH : window.width
   scaledWidth -= metrics.defaultPadding
 
   return (
@@ -61,16 +50,14 @@ export function Post({ data }) {
         }}
       />
       <View style={styles.metaContainer}>
-        <Text>Name: {breeds[0].name}</Text>
-        <Text>Bred group: {breeds[0].breed_group}</Text>
-        <Text>Bred for: {breeds[0].bred_for}</Text>
-        <Text>Life span: {breeds[0].life_span}</Text>
-        <Text>Temperament: {breeds[0].temperament}</Text>
-        <Text>Height: {breeds[0].height.metric}cm</Text>
-        <Text>Weight: {breeds[0].weight.metric}kg</Text>
-      </View>
-      <View>
-        <UpVote onPress={handleUpVote} />
+        <MetricText title="Name" subtitle={breeds[0].name} />
+        <MetricText title="Bred group" subtitle={breeds[0].breed_group} />
+        <MetricText title="Bred for" subtitle={breeds[0].bred_for} />
+        <MetricText title="Life span" subtitle={breeds[0].life_span} />
+        <MetricText title="Temperament" subtitle={breeds[0].temperament} />
+        <MetricText title="Height" subtitle={`${breeds[0].height.metric}cm`} />
+        <MetricText title="Weight" subtitle={`${breeds[0].weight.metric}kg`} />
+        <ThumbsUp active={!!vote} onPress={handleUpVote} />
       </View>
     </View>
   )
@@ -89,6 +76,6 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(0,0,0,0.5)'
   },
   metaContainer: {
-    padding: 10
+    padding: metrics.defaultPadding
   }
 })

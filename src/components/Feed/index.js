@@ -4,7 +4,7 @@ import {
   StyleSheet,
   ActivityIndicator,
 } from 'react-native'
-import { fetchFeedData } from '../../features/feed/redux'
+import { getFeedData } from '../../features/feed/redux'
 import { metrics } from '../../../constants'
 import { useDispatch, useSelector } from 'react-redux'
 import { Post } from './components'
@@ -14,7 +14,7 @@ export function Feed() {
   const { data } = useSelector(({ feed }) => feed)
 
   React.useEffect(() => {
-    dispatch(fetchFeedData())
+    dispatch(getFeedData())
   }, [])
 
   function renderItem({ item }) {

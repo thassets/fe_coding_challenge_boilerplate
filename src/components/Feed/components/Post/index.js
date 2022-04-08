@@ -1,44 +1,31 @@
-import React from 'react'
-import {
-  View,
-  Dimensions,
-  Image,
-  StyleSheet,
-} from 'react-native'
-import { ThumbsUp, MetricText } from './components';
-import { markAsFavorite } from '../../../../features/feed/redux';
-import { useDispatch } from 'react-redux';
-import { metrics } from '../../../../../constants';
+import React from "react";
+import { View, Dimensions, Image, StyleSheet } from "react-native";
+import { Heart, MetricText } from "./components";
+import { markAsFavorite } from "../../../../features/feed/redux";
+import { useDispatch } from "react-redux";
+import { metrics } from "../../../../../constants";
 
-const POST_MAX_WIDTH = 600
+const POST_MAX_WIDTH = 600;
 const window = Dimensions.get("window");
 
 export function Post({ data }) {
-  const {
-    breeds,
-    id,
-    url,
-    width,
-    height,
-    vote,
-  } = data
+  const { breeds, id, url, width, height, vote } = data;
 
   if (breeds.length < 1) {
-    return null
+    return null;
   }
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   function handleUpVote() {
-    const value = !!vote ? 0 : 1
-    dispatch(markAsFavorite(id, value))
+    const value = !!vote ? 0 : 1;
+    dispatch(markAsFavorite(id, value));
   }
 
-  console.log("I'm rendering!")
-
   const ratio = height / width;
-  let scaledWidth = window.width > POST_MAX_WIDTH ? POST_MAX_WIDTH : window.width
-  scaledWidth -= metrics.defaultPadding
+  let scaledWidth =
+    window.width > POST_MAX_WIDTH ? POST_MAX_WIDTH : window.width;
+  scaledWidth -= metrics.defaultPadding;
 
   return (
     <View key={id} style={styles.container}>
@@ -57,25 +44,25 @@ export function Post({ data }) {
         <MetricText title="Temperament" subtitle={breeds[0].temperament} />
         <MetricText title="Height" subtitle={`${breeds[0].height.metric}cm`} />
         <MetricText title="Weight" subtitle={`${breeds[0].weight.metric}kg`} />
-        <ThumbsUp active={!!vote} onPress={handleUpVote} />
+        <Heart active={!!vote} onPress={handleUpVote} />
       </View>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
-    alignSelf: 'center',
+    alignSelf: "center",
     borderRadius: 15,
     marginVertical: 20,
-    overflow: 'hidden',
+    overflow: "hidden",
     borderWidth: 2,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOpacity: 0.1,
     shadowRadius: 20,
-    borderColor: 'rgba(0,0,0,0.5)'
+    borderColor: "rgba(0,0,0,0.5)",
   },
   metaContainer: {
-    padding: metrics.defaultPadding
-  }
-})
+    padding: metrics.defaultPadding,
+  },
+});

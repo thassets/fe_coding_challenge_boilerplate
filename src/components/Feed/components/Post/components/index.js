@@ -1,2 +1,2 @@
-export * from './ThumbsUp';
-export * from './MetricText';
+export * from "./Heart";
+export * from "./MetricText";

@@ -5,11 +5,11 @@ import {
   MARK_AS_FAVORITE_BEGIN,
   MARK_AS_FAVORITE_SUCCESS,
   MARK_AS_FAVORITE_ERROR,
-} from './types'
+} from "./types";
 
 const INITIAL_STATE = {
   loading: false,
-  data: []
+  data: [],
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -18,18 +18,18 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading: true,
-      }
+      };
     case GET_FEED_DATA_SUCCESS:
       return {
         ...state,
         loading: false,
-        data: action.payload
-      }
+        data: action.payload,
+      };
     case GET_FEED_DATA_ERROR:
       return {
         ...state,
-        loading: false
-      }
+        loading: false,
+      };
     case MARK_AS_FAVORITE_BEGIN:
       return {
         ...state,
@@ -40,25 +40,25 @@ export default (state = INITIAL_STATE, action) => {
                 ...item,
                 vote: {
                   id: action.payload.id,
-                  value: action.payload.value
-                }
-              }
+                  value: action.payload.value,
+                },
+              };
             } else {
               return {
                 ...item,
-                vote: undefined
-              }
+                vote: undefined,
+              };
             }
           } else {
-            return item
+            return item;
           }
-        })
-      }
+        }),
+      };
     case MARK_AS_FAVORITE_SUCCESS:
-      return state
+      return state;
     case MARK_AS_FAVORITE_ERROR:
-      return state
+      return state;
     default:
-      return state
+      return state;
   }
-}
+};

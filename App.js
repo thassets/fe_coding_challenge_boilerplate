@@ -1,14 +1,12 @@
 import * as React from "react";
 import * as Font from "expo-font";
-import { applyMiddleware, combineReducers, createStore } from "redux";
+// import { applyMiddleware, combineReducers, createStore } from "redux";
 import axios from "axios";
-import thunk from "redux-thunk";
-import { composeWithDevTools } from "redux-devtools-extension";
-import feed from "./src/features/feed/redux";
-import { Header, Feed } from "./src/components";
+// import thunk from "redux-thunk";
+// import { composeWithDevTools } from "redux-devtools-extension";
+import { Header } from "./src/components";
 import { Provider } from "react-redux";
 import AppLoading from "expo-app-loading";
-import { DEFAULT_USER } from "./constants";
 
 /**
  * Axios has been pre-configured with a base api url,
@@ -28,7 +26,7 @@ axios.interceptors.request.use((config) => {
       if (!config.params) {
         config.params = {};
       }
-      config.params["sub_id"] = process.env.EXPO_USER || DEFAULT_USER;
+      config.params["sub_id"] = process.env.EXPO_USER;
     } catch (error) {
       console.warn("Unable to add sub_id to get /images request");
     }
@@ -38,7 +36,7 @@ axios.interceptors.request.use((config) => {
       if (!config.data) {
         config.data = {};
       }
-      config.data["sub_id"] = process.env.EXPO_USER || DEFAULT_USER;
+      config.data["sub_id"] = process.env.EXPO_USER;
     } catch (error) {
       console.warn("Unable to add sub_id to post /votes request");
     }
@@ -46,9 +44,9 @@ axios.interceptors.request.use((config) => {
   return config;
 });
 
-const enhancer = composeWithDevTools(applyMiddleware(thunk));
-const combinedReducers = combineReducers({ feed });
-const store = createStore(combinedReducers, enhancer);
+// const enhancer = composeWithDevTools(applyMiddleware(thunk));
+// const combinedReducers = combineReducers({});
+// const store = createStore(combinedReducers, enhancer);
 
 export default function App() {
   const [loaded, setLoaded] = React.useState(false);
@@ -65,10 +63,9 @@ export default function App() {
 
   if (loaded) {
     return (
-      <Provider store={store}>
-        <Header />
-        <Feed />
-      </Provider>
+      // <Provider store={store}>
+      <Header />
+      // </Provider>
     );
   } else {
     return <AppLoading />;

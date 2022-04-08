@@ -44,6 +44,7 @@ As a user, I want to be able to:
 
 - **See a loading state when I launch the app while data is being fetched**
   - Note: Axios API headers, base url, and some query params are already configured for you in App.js
+  - Note: Suggested redux boilerplate has already been set up in App.js -- it is commented out to begin with
   - Hint: Your POST /votes request's data should include the following:
   ```
   image_id: ${imageId}
